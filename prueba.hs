@@ -84,6 +84,39 @@ distanciaManhattan (a,b,c) (x,y,z) = absoluto(a-x) + absoluto(b-y) + absoluto(c-
 
 
 {-Ejercicio 8-}
+{-Guia 4-}
+fibonacci :: Integer -> Integer
+fibonacci n | n == 0 = 0 
+            | n == 1 = 1
+            | otherwise = fibonacci (n-1)+ fibonacci (n-2)  
+
+parteEntera :: Float -> Integer
+parteEntera n | n < 1 = 0
+              | otherwise = 1 + parteEntera (n-1)  
+
+esDivisible :: Integer -> Integer -> Bool
+esDivisible x y 
+    | x == 0         = True
+    | x < y          = False
+    | otherwise      = esDivisible (x - y) y
+
+sumaImpares :: Integer -> Integer
+sumaImpares 0 = 0
+sumaImpares n = (2*n - 1) + sumaImpares (n - 1)
+
+
+medioFact :: Integer -> Integer
+medioFact 0 = 1
+medioFact 1 = 1
+medioFact n = n * medioFact (n - 2)
+
+cantDigitos :: Integer -> Integer
+cantDigitos n
+  | n == 0    = 1
+  | otherwise = 1 + cantDigitos (n `div` 10)
+
+iesimoDigito :: Integer -> Integer -> Integer
+iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - i))) `mod` 10  
 
 
 
